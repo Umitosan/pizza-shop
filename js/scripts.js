@@ -25,8 +25,6 @@ Pizza.prototype.pizzaCost = function() {
 }
 
 
-
-
 // FRONT END
 $(document).ready(function() {
 
@@ -34,14 +32,19 @@ $(document).ready(function() {
     event.preventDefault();
     console.log("form has been submitted");
 
-    var userTopping1 = $("#topping1 option:selected").val();
-    var userPizzaSize = $("#size option:selected").val();
+    var userTopping1 = $("#pizza-topping1 option:selected").val();
+    var userPizzaSize = $("#pizza-size option:selected").val();
 
+    // display pizza summary
     $("#pizza-summary-topping1").text("");
     $("#pizza-summary-topping1").append(userTopping1);
     $("#pizza-summary-size").text("");
     $("#pizza-summary-size").append(userPizzaSize);
     $("#pizza-summary-area").show();
+
+    // reset input dropdowns
+    $("#pizza-topping1").prop('selectedIndex', 0);
+    $("#pizza-size").prop('selectedIndex', 0);
   });
 
 });

@@ -6,8 +6,7 @@
 
 ## Description
 
-This project is an effort to demonstrate the use of website form and general DOM control using jquery. This website's goal is to help guide newbies in their choice of coding language.  
-
+This project aims to demonstrate the basic use of javascript constructors and prototypes.
 
 Draft 1 created 04/7/2017.
 
@@ -18,7 +17,7 @@ Draft 1 created 04/7/2017.
 
 | The program displays selectable options for pizza toppings and size to the user and displays their choices after clicking the 'Add Pizza' button | user selects the topping 'mushrooms' and a pizza size of 'medium' and clicks 'Add Pizza' | the page displays a simple summary of the order below |
 
-| The program will reset all input fields when 'Add Pizza' is clicked | user selects options and clicks 'Add Pizza' | all the pizza option input fields are reset to their default positions |
+| The program will reset all input fields when 'Add Pizza' is clicked | user selects options and clicks 'Add Pizza' | all the pizza options are reset to  default positions |
 
 | The program will have an option to reset the entire order by pushing a 'Start Over' button | user pushes 'Start Over' button | all pizza order details are cleared from the screen and pizza options are reset |
 
