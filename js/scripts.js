@@ -5,7 +5,6 @@ function Order() {
 }
 
 Order.prototype.totalOrderCost = function() {
-
   return orderCost;
 }
 
@@ -15,12 +14,11 @@ function Pizza() {
 }
 
 Pizza.prototype.addTopping = function(tmpTopp) {
-
-  return 0;
+  this.toppingsArr.push(tmpTopp);
+  return ;
 }
 
 Pizza.prototype.pizzaCost = function() {
-
   return pizzaCost;
 }
 
@@ -28,18 +26,22 @@ Pizza.prototype.pizzaCost = function() {
 // FRONT END
 $(document).ready(function() {
 
+
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
-    console.log("form has been submitted");
 
-    var userTopping1 = $("#pizza-topping1 option:selected").val();
-    var userPizzaSize = $("#pizza-size option:selected").val();
+    var userPizza = new Pizza();
+
+    userPizza.addTopping($("#pizza-topping1 option:selected").val());
+    userPizza.size = $("#pizza-size option:selected").val();
+
+    // console.log();
 
     // display pizza summary
     $("#pizza-summary-topping1").text("");
-    $("#pizza-summary-topping1").append(userTopping1);
+    $("#pizza-summary-topping1").append(userPizza.toppingsArr);
     $("#pizza-summary-size").text("");
-    $("#pizza-summary-size").append(userPizzaSize);
+    $("#pizza-summary-size").append(userPizza.size);
     $("#pizza-summary-area").show();
 
     // reset input dropdowns
