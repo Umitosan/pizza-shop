@@ -38,3 +38,10 @@
 #pizza-summary-area {
   display: none;
 }
+
+#pizza-summary-area span {
+  font-style: bold;
+  font-family: helvetica;
+  font-size: 20px;
+  color: red;
+}
