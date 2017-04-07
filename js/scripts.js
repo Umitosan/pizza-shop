@@ -71,6 +71,7 @@ $(document).ready(function() {
       userPizza.saveOptionValues($(this).val());
     });
 
+    $("#no-size").text("");
     $("#pizza-summary-size").text("");
     $("#pizza-summary-size").text(userPizza.size);
     $("#pizza-summary-toppings").text("");
@@ -80,7 +81,7 @@ $(document).ready(function() {
 
     // check for no size selected before revealing output area
     if ($("#pizza-size option:selected").val() === "none") {
-        alert("Please select a pizza size.");
+        $("#no-size").append(" ** Please select a pizza size. **");
     } else {
       // display pizza summary
       $("#pizza-summary-area").show();

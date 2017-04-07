@@ -1,6 +1,29 @@
 .jumbotron {
   text-align: center;
   background-color: lightgrey;
+
+  opacity: 1;
+}
+
+.container {
+  color: #f9f6d6;
+}
+
+body {
+
+  opacity: 1;
+}
+
+img {
+  margin-top: -30px;
+  position: absolute;
+  opacity: 0.8;
+  min-width: 600px;
+  height: 1200px;
+}
+
+select {
+  color: #231102;
 }
 
 #row1 {
@@ -45,10 +68,10 @@
 }
 
 #pizza-summary-area span {
-  font-style: bold;
+  font-style: bolder;
   font-family: helvetica;
-  font-size: 16px;
-  color: red;
+  font-size: 22px;
+  color: #37d6e8;
 }
 
 #allbuttons {
@@ -57,4 +80,10 @@
 
 #startover {
 
+}
+
+#no-size {
+  font-weight: bolder;
+  color: red;
+  margin-bottom: 40px;
 }
