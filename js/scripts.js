@@ -7,6 +7,10 @@ function Order() {
   this.price = 0;
 }
 
+Order.prototype.addPizzaToOrder = function(tmpPizza) {
+  this.pizzaArr.push(tmpPizza);
+}
+
 Order.prototype.calcOrderPrice = function() {
   return orderCost;
 }
@@ -53,6 +57,10 @@ const pizzaItemPriceList = {
 //--------------
 $(document).ready(function() {
 
+  // create new order
+  var userOrder = new Order();
+
+
   // FORM SUBMIT BUTTON
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
@@ -71,6 +79,7 @@ $(document).ready(function() {
       userPizza.saveOptionValues($(this).val());
     });
 
+    // update output fields
     $("#no-size").text("");
     $("#pizza-summary-size").text("");
     $("#pizza-summary-size").text(userPizza.size);
@@ -82,14 +91,24 @@ $(document).ready(function() {
     // check for no size selected before revealing output area
     if ($("#pizza-size option:selected").val() === "none") {
         $("#no-size").append(" ** Please select a pizza size. **");
+        // delete current working pizza
+        userPizza = null;
     } else {
+      // add pizza to order
+      userOrder.addPizzaToOrder(userPizza);
       // display pizza summary
-      $("#pizza-summary-area").show();
+      // add pizza link to list area below buttons
+      $("ul#pizza-list").append("<li class='pizza-li'><span>" + "Pizza " + userOrder.pizzaArr.length + "</span></li>");
+      $("#pizza-list-area").show();
       // reset all input dropdowns
       $(".alloptions select").each(function() {
         $(this).prop('selectedIndex', 0);
       });
     }
+
+    $("li").last().click(function() {
+      $("#summary2").show();
+    });
 
   }); //  END form submit
 
@@ -97,5 +116,6 @@ $(document).ready(function() {
   $("#startover").click(function() {
     location.reload();
   });
+
 
 }); // END document ready

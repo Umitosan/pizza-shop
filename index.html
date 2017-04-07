@@ -92,22 +92,29 @@
             <div id="allbuttons">
               <button id="add-pizza" class="btn btn-info" type="submit" name="button">Add Pizza</button>
               <button id="startover" class="btn btn-warning" type="button" name="button">Start Over</button>
-              <!-- <button id="ordernow" class="btn btn-success" type="submit" name="button">Order Now</button> -->
+              <button id="ordernow" class="btn btn-success" type="button" name="button">Order Now</button>
             </div>
 
           </form>
 
-          <div id="pizza-summary-area">
-            <h3>Pizza 1: </h3>
-            <p>Size:  <span id="pizza-summary-size"></span></p>
-            <p>Toppings:  <span id="pizza-summary-toppings"></span></p>
-            <p>Pizza Price:  <span id="pizza-summary-price"></span></p>
+          <div id="pizza-list-area">
+            <h3>Your Pizzas: </h3>
+            <ul id="pizza-list">
+              <li></li>
+            </ul>
           </div>
 
         </div> <!-- END COLUMN -->
-
-        <div id="summary2" class="col col-sm-6">
-          <h3>Order Summary: </h3>
+        <div class="col col-sm-6">
+          <div id="summary2" >
+            <h2>Pizza details: </h2>
+            <div id="pizza-summary-area">
+              <h3>Pizza # <span id="pizza-num"></span></h3>
+              <p>Size:  <span id="pizza-summary-size"></span></p>
+              <p>Toppings:  <span id="pizza-summary-toppings"></span></p>
+              <p>Sub-Total:  <span id="pizza-summary-price"></span></p>
+            </div>
+          </div>
         </div>
 
       </div> <!-- END ROW -->

@@ -1,16 +1,14 @@
 .jumbotron {
   text-align: center;
   background-color: lightgrey;
-
   opacity: 1;
 }
 
 .container {
-  color: #f9f6d6;
+  color: #3f290f;
 }
 
 body {
-
   opacity: 1;
 }
 
@@ -27,19 +25,16 @@ select {
 }
 
 #row1 {
-  /*border-style: dashed;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: lightblue;
-  height: 800px;*/
+  /*height: 500px;*/
 }
 
 .col {
-  /*border-style: dashed;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: lightgreen;*/
-  height: 400px;
+  border-style: none;
+  border-width: 1px;
+  border-radius: 20px;
+  height: 600px;
+  background-color: lightgrey;
+  opacity: 0.8;
 }
 
 .alloptions {
@@ -55,31 +50,34 @@ select {
   margin: 10px;
 }
 
-#summary2 h3 {
+#summary2 {
+  display: none;
+  color: black;
+}
+
+#pizza-list-area {
   display: none;
 }
 
+ul {
+  list-style: none;
+}
+
+.pizza-li {
+  text-decoration: underline;
+  cursor: pointer;
+  cursor: hand;
+}
+
 #pizza-summary-area {
-  display: none;
-  /*border-style: dashed;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: lightgreen;*/
+  color: inherit;
 }
 
 #pizza-summary-area span {
   font-style: bolder;
   font-family: helvetica;
   font-size: 22px;
-  color: #37d6e8;
-}
-
-#allbuttons {
-
-}
-
-#startover {
-
+  color: black;
 }
 
 #no-size {
