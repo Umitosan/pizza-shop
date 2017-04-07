@@ -4,10 +4,10 @@
 
 function Order() {
   this.pizzaArr = [];
-  this.totalPrice = 0;
+  this.price = 0;
 }
 
-Order.prototype.orderPrice = function() {
+Order.prototype.calcOrderPrice = function() {
   return orderCost;
 }
 
@@ -71,18 +71,25 @@ $(document).ready(function() {
       userPizza.saveOptionValues($(this).val());
     });
 
-    // display pizza summary
     $("#pizza-summary-size").text("");
     $("#pizza-summary-size").text(userPizza.size);
     $("#pizza-summary-toppings").text("");
     $("#pizza-summary-toppings").append(userPizza.toppingsArr.toString());
+    $("#pizza-summary-price").text("");
     $("#pizza-summary-price").append("$" + userPizza.calcPizzaPrice());
-    $("#pizza-summary-area").show();
 
-    // reset all input dropdowns
-    $(".alloptions select").each(function() {
-      $(this).prop('selectedIndex', 0);
-    });
+    // check for no size selected before revealing output area
+    if ($("#pizza-size option:selected").val() === "none") {
+        alert("Please select a pizza size.");
+    } else {
+      // display pizza summary
+      $("#pizza-summary-area").show();
+      // reset all input dropdowns
+      $(".alloptions select").each(function() {
+        $(this).prop('selectedIndex', 0);
+      });
+    }
+
   }); //  END form submit
 
   // START OVER BUTTON

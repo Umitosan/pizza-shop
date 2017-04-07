@@ -38,10 +38,10 @@
 
 #pizza-summary-area {
   display: none;
-  border-style: dashed;
+  /*border-style: dashed;
   border-width: 2px;
   border-radius: 5px;
-  border-color: lightgreen;
+  border-color: lightgreen;*/
 }
 
 #pizza-summary-area span {
