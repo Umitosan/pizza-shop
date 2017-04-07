@@ -37,11 +37,15 @@
 
 #pizza-summary-area {
   display: none;
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: lightgreen;
 }
 
 #pizza-summary-area span {
   font-style: bold;
   font-family: helvetica;
-  font-size: 20px;
+  font-size: 16px;
   color: red;
 }

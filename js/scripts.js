@@ -51,13 +51,9 @@ $(document).ready(function() {
     $("#pizza-summary-area").show();
 
     // reset input dropdowns
-    $("#pizza-topping1").prop('selectedIndex', 0);
-    $("#pizza-topping2").prop('selectedIndex', 0);
-    $("#pizza-topping3").prop('selectedIndex', 0);
-    $("#pizza-topping4").prop('selectedIndex', 0);
-    $("#pizza-size").prop('selectedIndex', 0);
-  });
+    $(".alloptions select").each(function() {
+      $(this).prop('selectedIndex', 0);
+    });
 
-  
-
-});
+  }); //  END form submit
+}); // END document ready
