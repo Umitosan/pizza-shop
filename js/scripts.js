@@ -30,6 +30,7 @@ Pizza.prototype.pizzaCost = function() {
 // FRONT END
 $(document).ready(function() {
 
+  // FORM SUBMIT EVENT
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
 
@@ -56,4 +57,14 @@ $(document).ready(function() {
     });
 
   }); //  END form submit
+
+
+  // START OVER BUTTON EVENT
+  $("#startover").click(function() {
+    location.reload();
+  });
+
+
+
+
 }); // END document ready
