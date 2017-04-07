@@ -16,7 +16,7 @@ Draft 1 created 04/7/2017.
 | Behavior | Input | Output |
 |----------|:-----:|:------:|
 
-| The program displays selectable options for pizza toppings and size to the user and displays their choices after clicking the 'Order Now' button | user selects the topping 'mushrooms' and a pizza size of 'medium' and clicks 'Add Pizza' | the page displays a simple summary of the order below |
+| The program displays selectable options for pizza toppings and size to the user and displays their choices after clicking the 'Add Pizza' button | user selects the topping 'mushrooms' and a pizza size of 'medium' and clicks 'Add Pizza' | the page displays a simple summary of the order below |
 
 | The program will reset all input fields when 'Add Pizza' is clicked | user selects options and clicks 'Add Pizza' | all the pizza option input fields are reset to their default positions |
 

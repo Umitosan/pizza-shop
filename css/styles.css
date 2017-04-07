@@ -1,0 +1,44 @@
+.jumbotron {
+  text-align: center;
+}
+
+.row {
+  /*border-style: dashed;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: lightblue;
+  height: 800px;*/
+}
+
+.col {
+  /*border-style: dashed;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: lightgreen;*/
+  height: 400px;
+}
+
+.alloptions {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.options1 {
+  margin: 10px;
+}
+
+.options2 {
+  margin: 10px;
+}
+
+/*.options2 select {
+  margin-right: 50px;
+}*/
+
+#summary2 h3 {
+  display: none;
+}
+
+#pizza-summary-area {
+  display: none;
+}
