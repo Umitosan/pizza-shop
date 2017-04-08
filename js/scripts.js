@@ -12,7 +12,11 @@ Order.prototype.addPizzaToOrder = function(tmpPizza) {
 }
 
 Order.prototype.calcOrderPrice = function() {
-  return orderCost;
+  var workingPrice;
+  pizzaArr.forEach(function() {
+
+  });
+  return workingPrice;
 }
 
 function Pizza() {
@@ -52,19 +56,35 @@ const pizzaItemPriceList = {
   M: 10.50, L: 14.75, XL: 18.50
 }
 
+
+
+
 //-------------
 // FRONT END
 //--------------
 $(document).ready(function() {
 
-  // create new order
-  var userOrder = new Order();
+  var clearAllSpans = function() {
+    $("#no-size").text("");
+    $("#pizza-summary-size").text("");
+    $("#pizza-summary-toppings").text("");
+    $("#pizza-summary-price").text("");
+  };
 
+  var clearAllSelects = function() {
+    $(".alloptions select").each(function() {
+      $(this).prop('selectedIndex', 0);
+    });
+  };
+
+  // create new order object
+  var userOrder = new Order();
 
   // FORM SUBMIT BUTTON
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
 
+    // create new pizza object
     var userPizza = new Pizza();
 
     // save pizza toppings to pizza
@@ -79,35 +99,27 @@ $(document).ready(function() {
       userPizza.saveOptionValues($(this).val());
     });
 
-    // update output fields
-    $("#no-size").text("");
-    $("#pizza-summary-size").text("");
-    $("#pizza-summary-size").text(userPizza.size);
-    $("#pizza-summary-toppings").text("");
-    $("#pizza-summary-toppings").append(userPizza.toppingsArr.toString());
-    $("#pizza-summary-price").text("");
-    $("#pizza-summary-price").append("$" + userPizza.calcPizzaPrice());
-
     // check for no size selected before revealing output area
     if ($("#pizza-size option:selected").val() === "none") {
         $("#no-size").append(" ** Please select a pizza size. **");
         // delete current working pizza
         userPizza = null;
     } else {
-      // add pizza to order
       userOrder.addPizzaToOrder(userPizza);
-      // display pizza summary
       // add pizza link to list area below buttons
       $("ul#pizza-list").append("<li class='pizza-li'><span>" + "Pizza " + userOrder.pizzaArr.length + "</span></li>");
       $("#pizza-list-area").show();
-      // reset all input dropdowns
-      $(".alloptions select").each(function() {
-        $(this).prop('selectedIndex', 0);
-      });
+      clearAllSelects();
     }
 
     $("li").last().click(function() {
       $("#summary2").show();
+      // update output fields
+      clearAllSpans();
+      $("#pizza-summary-size").text(userPizza.size);
+      $("#pizza-summary-toppings").append(userPizza.toppingsArr.toString());
+      $("#pizza-summary-price").append("$" + userPizza.calcPizzaPrice());
+      console.log("userOrder.pizzaArr.length : " , userOrder.pizzaArr.length);
     });
 
   }); //  END form submit
@@ -116,6 +128,5 @@ $(document).ready(function() {
   $("#startover").click(function() {
     location.reload();
   });
-
 
 }); // END document ready

@@ -21,7 +21,7 @@ img {
 }
 
 select {
-  color: #231102;
+  color: #3f290f;
 }
 
 #row1 {
@@ -52,7 +52,7 @@ select {
 
 #summary2 {
   display: none;
-  color: black;
+  color: #3f290f;
 }
 
 #pizza-list-area {
@@ -69,15 +69,12 @@ ul {
   cursor: hand;
 }
 
-#pizza-summary-area {
-  color: inherit;
-}
 
 #pizza-summary-area span {
   font-style: bolder;
   font-family: helvetica;
   font-size: 22px;
-  color: black;
+  color: #3f290f;
 }
 
 #no-size {
