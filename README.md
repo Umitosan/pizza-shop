@@ -25,7 +25,7 @@ Draft 1 created 04/7/2017.
 
 | The program will have the option to add multiple pizzas to an order one at a time using the 'Add Pizza' button | user clicks 'Add Pizza' | the input options are reset and the previous pizza details remain on screen |
 
-| When multiple pizza's are added the program will display them as clickable links and when the user clicks each link, a pizza summary will appear | user adds 4 pizzas to an order and clicks a pizza link | the pizzas will be listed as links in the order summary area, and clicked pizza's specific details will be displayed nearby |
+| When multiple pizza's are added the program will display them as clickable links and when the user clicks each link, a pizza summary will appear | user adds 4 pizzas to an order and clicks a pizza link | the pizzas will be listed as links in the order summary area, and the clicked pizza's specific details will be displayed nearby |
 
 |  |  |  |
 

@@ -42,7 +42,6 @@ Pizza.prototype.calcPizzaPrice = function() {
   var workingPrice = 0.00;
   this.optionValuesArr.forEach(function(index) {
     workingPrice += parseFloat(pizzaItemPriceList[index]);
-    console.log("item price : " , parseFloat(pizzaItemPriceList[index]));
   });
   this.price = workingPrice.toFixed(2);
   return this.price;
@@ -65,7 +64,6 @@ const pizzaItemPriceList = {
 $(document).ready(function() {
 
   var clearAllSpans = function() {
-    $("#no-size").text("");
     $("#pizza-summary-size").text("");
     $("#pizza-summary-toppings").text("");
     $("#pizza-summary-price").text("");
@@ -83,6 +81,8 @@ $(document).ready(function() {
   // FORM SUBMIT BUTTON
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
+
+    $("#no-size").text("");
 
     // create new pizza object
     var userPizza = new Pizza();
@@ -110,19 +110,19 @@ $(document).ready(function() {
       $("ul#pizza-list").append("<li value='" + userOrder.pizzaArr.length + "' class='pizza-li'><span>" + "Pizza " + userOrder.pizzaArr.length + "</span></li>");
       $("#pizza-list-area").show();
       clearAllSelects();
+      // li click event must be here to safeguard against the function attaching to the wrong li
+      $("li").last().click(function() {
+        $("#summary2").show();
+        // update output fields
+        clearAllSpans();
+        $("#pizza-summary-size").text(userPizza.size);
+        $("#pizza-summary-toppings").append(userPizza.toppingsArr.toString());
+        $("#pizza-summary-price").append("$" + userPizza.calcPizzaPrice());
+        $("#summary2 #pizza-num").text($(this).val());
+      });
     }
-
-    $("li").last().click(function() {
-      $("#summary2").show();
-      // update output fields
-      clearAllSpans();
-      $("#pizza-summary-size").text(userPizza.size);
-      $("#pizza-summary-toppings").append(userPizza.toppingsArr.toString());
-      $("#pizza-summary-price").append("$" + userPizza.calcPizzaPrice());
-      $("#summary2 #pizza-num").text($(this).val());
-      console.log("this li val: " , $(this).val());
-      console.log("userOrder.pizzaArr.length : " , userOrder.pizzaArr.length);
-    });
+    
+    console.log("userOrder.pizzaArr.length : " , userOrder.pizzaArr.length);
 
   }); //  END form submit
 
