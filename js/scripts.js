@@ -107,7 +107,7 @@ $(document).ready(function() {
     } else {
       userOrder.addPizzaToOrder(userPizza);
       // add pizza link to list area below buttons
-      $("ul#pizza-list").append("<li class='pizza-li'><span>" + "Pizza " + userOrder.pizzaArr.length + "</span></li>");
+      $("ul#pizza-list").append("<li value='" + userOrder.pizzaArr.length + "' class='pizza-li'><span>" + "Pizza " + userOrder.pizzaArr.length + "</span></li>");
       $("#pizza-list-area").show();
       clearAllSelects();
     }
@@ -119,6 +119,8 @@ $(document).ready(function() {
       $("#pizza-summary-size").text(userPizza.size);
       $("#pizza-summary-toppings").append(userPizza.toppingsArr.toString());
       $("#pizza-summary-price").append("$" + userPizza.calcPizzaPrice());
+      $("#summary2 #pizza-num").text($(this).val());
+      console.log("this li val: " , $(this).val());
       console.log("userOrder.pizzaArr.length : " , userOrder.pizzaArr.length);
     });
 
