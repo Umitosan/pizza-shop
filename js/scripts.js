@@ -12,11 +12,11 @@ Order.prototype.addPizzaToOrder = function(tmpPizza) {
 }
 
 Order.prototype.calcOrderPrice = function() {
-  var workingPrice;
-  pizzaArr.forEach(function() {
-
+  var workingPrice = 0.00;
+  this.pizzaArr.forEach(function(tmpPizza) {
+    workingPrice += parseFloat(tmpPizza.price);
   });
-  return workingPrice;
+  return workingPrice.toFixed(2);
 }
 
 function Pizza() {
@@ -29,7 +29,6 @@ function Pizza() {
 Pizza.prototype.saveToppingName = function(toppName) {
   if (toppName !== "select") {
     this.toppingsArr.push(toppName);
-  } else {
   }
 }
 
@@ -56,8 +55,6 @@ const pizzaItemPriceList = {
 }
 
 
-
-
 //-------------
 // FRONT END
 //--------------
@@ -67,6 +64,8 @@ $(document).ready(function() {
     $("#pizza-summary-size").text("");
     $("#pizza-summary-toppings").text("");
     $("#pizza-summary-price").text("");
+    $("#pizza-total").text("");
+    $("#price-total").text("");
   };
 
   var clearAllSelects = function() {
@@ -87,11 +86,10 @@ $(document).ready(function() {
     // create new pizza object
     var userPizza = new Pizza();
 
-    // save pizza toppings to pizza
+    // save pizza toppings to pizza, size to pizza
     $(".options1 select option:selected").each(function() {
       userPizza.saveToppingName($(this).text());
     });
-    // save size to pizza
     userPizza.size = $("#pizza-size option:selected").text();
 
     // save pizza options values to pizza
@@ -99,13 +97,13 @@ $(document).ready(function() {
       userPizza.saveOptionValues($(this).val());
     });
 
-    // check for no size selected before revealing output area
+    // stop all processes if a pizza size has been selected!!
     if ($("#pizza-size option:selected").val() === "none") {
         $("#no-size").append(" ** Please select a pizza size. **");
-        // delete current working pizza
-        userPizza = null;
+        userPizza = null;  // delete current working pizza
     } else {
       userOrder.addPizzaToOrder(userPizza);
+      $("#summary3").hide();
       // add pizza link to list area below buttons
       $("ul#pizza-list").append("<li value='" + userOrder.pizzaArr.length + "' class='pizza-li'><span>" + "Pizza " + userOrder.pizzaArr.length + "</span></li>");
       $("#pizza-list-area").show();
@@ -121,13 +119,18 @@ $(document).ready(function() {
         $("#summary2 #pizza-num").text($(this).val());
       });
     }
-    
-    console.log("userOrder.pizzaArr.length : " , userOrder.pizzaArr.length);
-
   }); //  END form submit
 
+  // SUBMIT ORDER BUTTON
+  $("#submit-order").click(function() {
+    $("#pizza-total").text(userOrder.pizzaArr.length);
+    // console.log("userOrder.calcOrderPrice()" ,userOrder.calcOrderPrice() );
+    $("#price-total").append("$" , userOrder.calcOrderPrice());
+    $("#summary3").show();
+  });
+
   // START OVER BUTTON
-  $("#startover").click(function() {
+  $("#start-over").click(function() {
     location.reload();
   });
 

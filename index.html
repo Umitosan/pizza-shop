@@ -18,7 +18,7 @@
     <div class="container">
       <div id="row1" class="row">
         <div class="col col-sm-6">  <!-- LEFT COLUMN -->
-          <h2>Build a pizza below</h2>
+          <h2>Customize your pizza below</h2>
           <form id="pizza-form" class="form" action="index.html" method="post">
             <div class="alloptions">
               <div class="options1">
@@ -87,8 +87,8 @@
 
             <div id="allbuttons">
               <button id="add-pizza" class="btn btn-info" type="submit" name="button">Add Pizza</button>
-              <button id="startover" class="btn btn-warning" type="button" name="button">Start Over</button>
-              <button id="ordernow" class="btn btn-success" type="button" name="button">Order Now</button>
+              <button id="start-over" class="btn btn-warning" type="button" name="button">Start Over</button>
+              <button id="submit-order" class="btn btn-success" type="button" name="button">Submit Order</button>
             </div>
 
           </form>
@@ -103,6 +103,7 @@
         </div> <!-- END COLUMN -->
         <div class="col col-sm-6">  <!-- RIGHT COLUMN -->
           <div id="summary2">
+            
             <h2>Pizza details: </h2>
             <div id="pizza-summary-area">
               <h3>Pizza #<span id="pizza-num"></span></h3>
@@ -110,6 +111,14 @@
               <p>Toppings:  <span id="pizza-summary-toppings"></span></p>
               <p>Sub-Total:  <span id="pizza-summary-price"></span></p>
             </div>
+          </div>
+          <br>
+
+          <div id="summary3">
+            <hr>
+            <h2>Order Details: </h2>
+            <p>Number of pizzas:  <span id="pizza-total"></span></p>
+            <p>Total order price:  <span id="price-total"></span></p>
           </div>
         </div>
 

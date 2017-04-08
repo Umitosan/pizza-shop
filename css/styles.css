@@ -82,3 +82,14 @@ ul {
   color: red;
   margin-bottom: 40px;
 }
+
+#summary3 {
+  display: none;
+}
+
+#summary3 span {
+  font-style: bolder;
+  font-family: helvetica;
+  font-size: 22px;
+  color: #3f290f;
+}
